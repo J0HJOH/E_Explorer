@@ -1,0 +1,82 @@
+name: e_explore
+description: "A new Flutter project."
+
+
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.2
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+#  http
+#  intl
+
+
+  cupertino_icons: ^1.0.8
+  # state management
+  get: ^4.7.1
+
+  # emulator
+  device_preview: ^1.2.0
+  http: ^1.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+
+
+
+
+  flutter_lints: ^5.0.0
+
+
+
+
+
+flutter:
+
+
+
+
+  uses-material-design: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
