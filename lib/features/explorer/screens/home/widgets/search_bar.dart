@@ -1,3 +1,4 @@
+import 'package:e_explore/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../../data/provider/country_provider.dart';
 import '../../../../../utils/constants/sizes.dart';
@@ -17,11 +18,13 @@ class SearchBarWidget extends StatelessWidget {
         controller.searchCountry(value);
       },
       decoration: InputDecoration(
+        fillColor: Theme.of(context).inputDecorationTheme.fillColor,
+        filled: Theme.of(context).inputDecorationTheme.filled,
         hintText: 'Search Country',
+        alignLabelWithHint: true,
+        hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
         prefixIcon: Icon(Icons.search),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(ESizes.borderRadiuSm),
-        ),
+        border: Theme.of(context).inputDecorationTheme.border,
       ),
     );
   }

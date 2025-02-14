@@ -22,10 +22,13 @@ class EColors {
   static const textPrimary = Color(0xFF333333);
   static const textSecondary = Color(0xFF6C7570);
   static const textWhite = Colors.white;
+  static const hintBackground = Color(0xF2F4F7);
+  static const hintBackgroundDark = Color(0x98A2B333);
+  static const hintText = Color(0xFF667085);
 
   //     Background colors
   static const Color light = Color(0xFFF6F6F6);
-  static const Color dark = Color(0xFF272727);
+  static const Color dark = Color(0xFF000F24);
   static const Color primaryBackground = Color(0xFFF3F5FF);
 
   //     Background colors Container
@@ -38,7 +41,7 @@ class EColors {
   static const Color buttonDisabled = Color(0xFFC4C4C4);
 
   //Border Colors
-  static const Color borderPrimary = Color(0xFFD9D9D9);
+  static const Color borderPrimary = Color(0xF2F4F7);
   static const Color borderSecondary = Color(0xFFE6E6E6);
 
   //Error and Validation Colors

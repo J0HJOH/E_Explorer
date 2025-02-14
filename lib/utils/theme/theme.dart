@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
+import 'custom_theme/bottom_sheet_theme.dart';
 import 'custom_theme/checkbox_theme.dart';
+import 'custom_theme/chip_theme.dart';
+import 'custom_theme/elevated_button_theme.dart';
 import 'custom_theme/outlinedbutton_theme.dart';
+import 'custom_theme/text_field_theme.dart';
+import 'custom_theme/text_theme.dart';
 
 class EAppTheme {
 //   this constructor is done to ensure this is not used over and over again
@@ -10,29 +15,30 @@ class EAppTheme {
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: 'Poppins',
+    fontFamily: 'Raleway',
     brightness: Brightness.light,
     primaryColor: EColors.primaryColor,
+    textTheme: ETextTheme.lightTextTheme,
     scaffoldBackgroundColor: Colors.white,
+    chipTheme: EChipTheme.lightChipTheme,
     checkboxTheme: ECheckboxTheme.lightCheckboxTheme,
-    // bottomSheetTheme: SBottomSheetTheme.lightBottomSheetTheme,
-    // elevatedButtonTheme: SElevatedButtonTheme.lightElevatedButtonTheme,
+    bottomSheetTheme: EBottomSheetTheme.lightBottomSheetTheme,
+    elevatedButtonTheme: EElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: EOutlinedButton.lightOutlinedButton,
-    // inputDecorationTheme: STextFieldTheme.lightTextFieldTheme,
+    inputDecorationTheme: ETextFieldTheme.lightTextFieldTheme,
   );
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: 'Poppins',
+    fontFamily: 'Raleway',
     brightness: Brightness.dark,
-    primaryColor: Colors.blue,
-    scaffoldBackgroundColor: Colors.black,
-    // textTheme: STextTheme.darkTextTheme,
-    // chipTheme: SChipTheme.darkChipTheme,
-    // appBarTheme: SAppBarTheme.darkAppBarTheme,
+    primaryColor: EColors.primaryColor,
+    scaffoldBackgroundColor: EColors.dark,
+    textTheme: ETextTheme.darkTextTheme,
+    chipTheme: EChipTheme.darkChipTheme,
     checkboxTheme: ECheckboxTheme.darkCheckboxTheme,
-    // bottomSheetTheme: SBottomSheetTheme.darkBottomSheetTheme,
-    // elevatedButtonTheme: SElevatedButtonTheme.darkElevatedButtonTheme,
+    bottomSheetTheme: EBottomSheetTheme.darkBottomSheetTheme,
+    elevatedButtonTheme: EElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: EOutlinedButton.darkOutlinedButton,
-    // inputDecorationTheme: STextFieldTheme.darkTextFieldTheme,
+    inputDecorationTheme: ETextFieldTheme.darkTextFieldTheme,
   );
 }

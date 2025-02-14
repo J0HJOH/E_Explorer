@@ -8,6 +8,7 @@ class CountryProvider extends GetxController {
   // a private field to return a filtered list of countries
   final RxList<CountryModel> _filteredCountries = <CountryModel>[].obs;
   final searchText = ''.obs;
+  final isLoading = true.obs;
 
 // a getter to expose the list of countries
   RxList<CountryModel> get countries => _filteredCountries;
@@ -21,12 +22,17 @@ class CountryProvider extends GetxController {
 
   // Fetch countries from the API
   Future<void> fetchCountries() async {
-    // fetch countries from the API
-    final List<CountryModel> countries = await EHttpService.fetchCountries();
-    // assign the fetched countries to the private field
-    _allcountries.assignAll(countries);
-    // assign the fetched countries to the filtered countries
-    _filteredCountries.assignAll(countries);
+    try {
+      isLoading(true);
+      // fetch countries from the API
+      final List<CountryModel> countries = await EHttpService.fetchCountries();
+      // assign the fetched countries to the private field
+      _allcountries.assignAll(countries);
+      // assign the fetched countries to the filtered countries
+      _filteredCountries.assignAll(countries);
+    } finally {
+      isLoading(false);
+    }
   }
 
   // Filter countries based on search text
