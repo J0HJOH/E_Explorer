@@ -13,9 +13,11 @@ Clone this repo by running this command
 '''
 
 Then run 
-"""bash
-flutter run
-"""
+
+```bash
+    flutter run 
+```
+
 
 This will show you a Mobile Responsive app that responds to your system Theme settings. A sorted list of country Data from the Api and functionalites where you can 
 
