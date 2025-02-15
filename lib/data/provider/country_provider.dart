@@ -114,19 +114,26 @@ class CountryProvider extends GetxController {
     }
     if (selectedContinents.isNotEmpty) {
       print("Filtering by continent(s): $selectedContinents");
+      print("Filtering by continent(s) No.: ${filtered.length}");
 
       filtered = filtered.where((country) {
         final countryContinents = country.continents ?? [];
+        print("ALl continent: $countryContinents");
+        print("Sel: ${selectedContinents.length}");
 
         // ✅ Ensure the country is in Africa ONLY if Africa is selected
         if (selectedContinents.length == 1) {
-          return countryContinents.length == 1 &&
+          final oneCoun = countryContinents.length == 1 &&
               countryContinents.contains(selectedContinents.first);
+          print("bool: ${oneCoun}");
+          return oneCoun;
         }
 
         // ✅ If multiple continents are selected, ensure the country has at least one of them
-        return selectedContinents
+        final moret = selectedContinents
             .any((selected) => countryContinents.contains(selected));
+        print("More : $moret");
+        return moret;
       }).toList();
 
       print(

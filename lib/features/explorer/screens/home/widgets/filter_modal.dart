@@ -65,34 +65,32 @@ class FilterModal extends StatelessWidget {
                 if (filterController.isDropdownOpen.value)
                   Column(
                     children: continents.map((continent) {
-                      return Obx(() => CheckboxListTile(
-                            title: Text(continent),
-                            value: filterController.selectedContinents
-                                .contains(continent),
-                            onChanged: (bool? selected) {
-                              if (selected == true) {
-                                filterController.selectedContinents
-                                    .add(continent);
+                      return CheckboxListTile(
+                        title: Text(continent),
+                        value: filterController.selectedContinents
+                            .contains(continent),
+                        onChanged: (bool? selected) {
+                          if (selected == true) {
+                            filterController.selectedContinents.add(continent);
+                          } else {
+                            filterController.selectedContinents
+                                .remove(continent);
+                          }
 
-                                // set the observable selected continent in the controller to this value
-                                // then call on search filter for the countryController
-                                countryController
-                                    .setSelectedContinents(continents);
-                              } else {
-                                filterController.selectedContinents
-                                    .remove(continent);
-
-                                countryController
-                                    .setSelectedContinents(continents);
-                              }
-                            },
-                          ));
+                          // Pass the selected continents to CountryProvider
+                          countryController.setSelectedContinents(
+                              filterController.selectedContinents.isEmpty
+                                  ? [] // If empty, show all
+                                  : filterController.selectedContinents);
+                        },
+                      );
                     }).toList(),
                   ),
               ],
             )),
 
         SizedBox(height: 16),
+
         // Close button
         Align(
           alignment: Alignment.centerRight,
