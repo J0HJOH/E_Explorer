@@ -1,9 +1,11 @@
+import 'package:e_explore/data/provider/country_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../controllers/filter_controller.dart';
 
 class FilterModal extends StatelessWidget {
   final FilterController filterController = Get.put(FilterController());
+  final countryController = Get.find<CountryProvider>();
 
   final List<String> continents = [
     "Africa",
@@ -63,26 +65,32 @@ class FilterModal extends StatelessWidget {
                 if (filterController.isDropdownOpen.value)
                   Column(
                     children: continents.map((continent) {
-                      return Obx(() => CheckboxListTile(
-                            title: Text(continent),
-                            value: filterController.selectedContinents
-                                .contains(continent),
-                            onChanged: (bool? selected) {
-                              if (selected == true) {
-                                filterController.selectedContinents
-                                    .add(continent);
-                              } else {
-                                filterController.selectedContinents
-                                    .remove(continent);
-                              }
-                            },
-                          ));
+                      return CheckboxListTile(
+                        title: Text(continent),
+                        value: filterController.selectedContinents
+                            .contains(continent),
+                        onChanged: (bool? selected) {
+                          if (selected == true) {
+                            filterController.selectedContinents.add(continent);
+                          } else {
+                            filterController.selectedContinents
+                                .remove(continent);
+                          }
+
+                          // Pass the selected continents to CountryProvider
+                          countryController.setSelectedContinents(
+                              filterController.selectedContinents.isEmpty
+                                  ? [] // If empty, show all
+                                  : filterController.selectedContinents);
+                        },
+                      );
                     }).toList(),
                   ),
               ],
             )),
 
         SizedBox(height: 16),
+
         // Close button
         Align(
           alignment: Alignment.centerRight,

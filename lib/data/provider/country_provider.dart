@@ -54,8 +54,9 @@ class CountryProvider extends GetxController {
     }
   }
 
+// this
   // 🔹 Filter by Continent
-  void filterByContinent(String continent) {
+  void filterByContinent(List<String> continent) {
     _filteredCountries.value = _allcountries
         .where((country) => country.continents?.contains(continent) ?? false)
         .toList();
@@ -99,29 +100,44 @@ class CountryProvider extends GetxController {
   void applyFilters() {
     List<CountryModel> filtered = _allcountries.toList();
 
-    // 🔹 Filter by Continents (if any selected)
-    if (selectedContinents.isNotEmpty) {
-      filtered = filtered
-          .where((country) =>
-              country.continents?.any((c) => selectedContinents.contains(c)) ??
-              false)
-          .toList();
-    }
-
     // 🔹 Filter by Language (if a language is selected)
     if (selectedLanguage.value.isNotEmpty) {
+      if (selectedLanguage.value == 'eng') {
+        // ✅ Return all countries without any language filtering
+        filtered = _allcountries.toList();
+      } else {
+        filtered = filtered.where((country) {
+          return country.translations != null &&
+              country.translations!.containsKey(selectedLanguage.value);
+        }).toList();
+      }
+    }
+    if (selectedContinents.isNotEmpty) {
+      print("Filtering by continent(s): $selectedContinents");
+      print("Filtering by continent(s) No.: ${filtered.length}");
+
       filtered = filtered.where((country) {
-        // Ensure the country has translations and the selected language exists in it
-        if (country.translations != null &&
-            country.translations!.containsKey(selectedLanguage.value)) {
-          return true; // Keep this country in the filtered list
+        final countryContinents = country.continents ?? [];
+        print("ALl continent: $countryContinents");
+        print("Sel: ${selectedContinents.length}");
+
+        // ✅ Ensure the country is in Africa ONLY if Africa is selected
+        if (selectedContinents.length == 1) {
+          final oneCoun = countryContinents.length == 1 &&
+              countryContinents.contains(selectedContinents.first);
+          print("bool: ${oneCoun}");
+          return oneCoun;
         }
-        return false; // Otherwise, remove it
+
+        // ✅ If multiple continents are selected, ensure the country has at least one of them
+        final moret = selectedContinents
+            .any((selected) => countryContinents.contains(selected));
+        print("More : $moret");
+        return moret;
       }).toList();
 
       print(
-          "Filtered: ${filtered.map((count) => count.translations?[selectedLanguage.value]?.official)}");
-      print("FilteredList: ${filtered.map((count) => count.name?.common)}");
+          "Filtered Countries: ${filtered.map((e) => e.name?.common).toList()}");
     }
 
     // 🔹 Filter by Search Text
@@ -135,13 +151,7 @@ class CountryProvider extends GetxController {
           .toList();
     }
 
-    // notcalled
-    print("Data1234:  ${filtered[0].name?.common ?? ''}");
-
-    // notcalled
-    print("Data: hjef ${_filteredCountries[0].name?.common ?? ''}");
-
-    // Apply final filtered list
+    // 🔹 Apply final filtered list
     _filteredCountries.assignAll(filtered);
   }
 

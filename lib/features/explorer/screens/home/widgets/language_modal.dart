@@ -13,11 +13,6 @@ class LanguageModal extends StatelessWidget {
     final controller = Get.find<LanguageController>();
     final countriesController = Get.find<CountryProvider>();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      countriesController
-          .setSelectedLanguage(controller.selectedLanguage.value);
-    });
-
     final List<String> languages = [
       'English',
       'Arabic',
@@ -57,10 +52,15 @@ class LanguageModal extends StatelessWidget {
                       groupValue: controller.selectedLanguage.value,
                       onChanged: (newValue) {
                         controller.selectedLanguage.value = newValue!;
+                        countriesController.setSelectedLanguage(
+                            controller.selectedLanguage.value);
                       },
                     ),
-                    onTap:
-                        () {}, // Prevents the entire tile from being clickable
+                    onTap: () {
+                      // ✅ Also allow selecting via tapping the entire ListTile
+                      controller.selectedLanguage.value = language;
+                      countriesController.setSelectedLanguage(language);
+                    }, // Prevents the entire tile from being clickable
                   ));
             }).toList(),
           ),
