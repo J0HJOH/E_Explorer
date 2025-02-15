@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../common/widgets/images/e_card_image.dart';
@@ -56,11 +57,31 @@ class _CountryDetailState extends State<CountryDetail> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /// 🖼️ Flag Slider Container
-              FlagSlider(
-                currentPic: currentPic,
-                countryImages: countryImages,
-                dark: dark,
+              /// 🖼️ Flag Slider
+              CarouselSlider(
+                options: CarouselOptions(
+                  height: 300,
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 0.9,
+                ),
+                items: countryImages.isNotEmpty
+                    ? countryImages.map((imageUrl) {
+                        return Container(
+                          margin: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            image: DecorationImage(
+                              image: NetworkImage(imageUrl),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      }).toList()
+                    : [
+                        Image.network(defaultFlag, fit: BoxFit.cover),
+                      ],
               ),
 
               const SizedBox(height: ESizes.defaultSpace),

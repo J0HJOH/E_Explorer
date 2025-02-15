@@ -27,9 +27,9 @@ class EFormatter {
     return phoneNumber;
   }
 
-  static String formatNumber(int number) {
-    var i = 3;
-  }
+  // static String formatNumber(int number) {
+  //   var i = 3;
+  // }
 
   static String internationalFormatPhoneNumber(String phoneNumber) {
     //Removing all non-digit from the passed string

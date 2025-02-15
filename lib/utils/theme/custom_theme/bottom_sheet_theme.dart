@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/colors.dart';
+
 class EBottomSheetTheme {
   EBottomSheetTheme._();
 
@@ -13,7 +15,7 @@ class EBottomSheetTheme {
   static BottomSheetThemeData darkBottomSheetTheme = BottomSheetThemeData(
       showDragHandle: true,
       backgroundColor: Colors.black,
-      modalBackgroundColor: Colors.black,
+      modalBackgroundColor: EColors.modalBgdark,
       constraints: const BoxConstraints(minWidth: double.infinity),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)));
 }

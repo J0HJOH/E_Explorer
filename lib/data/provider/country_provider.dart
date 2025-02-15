@@ -15,6 +15,9 @@ class CountryProvider extends GetxController {
 
 // a getter to expose the list of countries
   RxList<CountryModel> get countries => _filteredCountries;
+  // Store selected filters
+  final RxList<String> selectedContinents = <String>[].obs;
+  final RxString selectedLanguage = ''.obs;
 
   @override
   void onInit() {
@@ -49,6 +52,100 @@ class CountryProvider extends GetxController {
               country.name!.common!.toLowerCase().contains(text.toLowerCase()))
           .toList());
     }
+  }
+
+  // 🔹 Filter by Continent
+  void filterByContinent(String continent) {
+    _filteredCountries.value = _allcountries
+        .where((country) => country.continents?.contains(continent) ?? false)
+        .toList();
+  }
+
+  // 🔹 Filter by Time Zone
+  void filterByTimeZone(String timeZone) {
+    _filteredCountries.value = _allcountries
+        .where((country) => country.timezones?.contains(timeZone) ?? false)
+        .toList();
+  }
+
+  // 🔹 Filter by Population (Min Population)
+  void filterByPopulation(int minPopulation) {
+    _filteredCountries.value = _allcountries
+        .where((country) => (country.population ?? 0) >= minPopulation)
+        .toList();
+  }
+
+  // Set Language Filter
+  void setSelectedLanguage(String language) {
+    // assign selected language value to the first three characters of the Language passed in lowercase
+    final modelLan = language.isNotEmpty
+        ? (language == 'Japanese'
+            ? 'jpn'
+            : language == 'Chinese'
+                ? 'zho'
+                : language.substring(0, 3).toLowerCase())
+        : ''; //eg swe for Sweden
+    selectedLanguage.value = modelLan;
+    print("ModelLan : $modelLan");
+    print("Lang : $language");
+    applyFilters();
+  }
+
+  // Set Continent Filter (supports multiple selections)
+  void setSelectedContinents(List<String> continents) {
+    selectedContinents.assignAll(continents);
+    applyFilters();
+  }
+
+  // Apply all filters (Continents, Language, and Search)
+  void applyFilters() {
+    List<CountryModel> filtered = _allcountries.toList();
+
+    // 🔹 Filter by Continents (if any selected)
+    if (selectedContinents.isNotEmpty) {
+      filtered = filtered
+          .where((country) =>
+              country.continents?.any((c) => selectedContinents.contains(c)) ??
+              false)
+          .toList();
+    }
+
+    // 🔹 Filter by Language (if a language is selected)
+    // 🔹 Filter by Language (if a language is selected)
+    if (selectedLanguage.value.isNotEmpty) {
+      filtered = filtered.where((country) {
+        // Ensure the country has translations and the selected language exists in it
+        if (country.translations != null &&
+            country.translations!.containsKey(selectedLanguage.value)) {
+          return true; // Keep this country in the filtered list
+        }
+        return false; // Otherwise, remove it
+      }).toList();
+
+      print(
+          "Filtered: ${filtered.map((count) => count.translations?[selectedLanguage.value]?.official)}");
+    }
+
+    // 🔹 Filter by Search Text
+    if (searchText.isNotEmpty) {
+      filtered = filtered
+          .where((country) =>
+              country.name?.common
+                  ?.toLowerCase()
+                  .contains(searchText.value.toLowerCase()) ??
+              false)
+          .toList();
+    }
+
+    // Apply final filtered list
+    _filteredCountries.assignAll(filtered);
+  }
+
+  // 🔹 Filter by Size (Min Area)
+  void filterBySize(double minArea) {
+    _filteredCountries.value = _allcountries
+        .where((country) => (country.area ?? 0) >= minArea)
+        .toList();
   }
 
 // set the user selection to save state

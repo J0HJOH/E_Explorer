@@ -4,7 +4,7 @@ class EColors {
   EColors._();
 
   // Basic Colors
-  static const Color primaryColor = Color(0xFFFFFF);
+  static const Color primaryColor = Colors.black;
   static const Color secondaryColor = Color(0xFF6C00);
   static const Color accent = Color(0xF2F4F7);
 
@@ -30,6 +30,7 @@ class EColors {
   static const Color light = Color(0xFFF6F6F6);
   static const Color dark = Color(0xFF000F24);
   static const Color primaryBackground = Color(0xFFF3F5FF);
+  static const Color modalBgdark = Color(0xFF000F24);
 
   //     ForeGround colors
   static const Color lightfg = Color(0xFF000000);

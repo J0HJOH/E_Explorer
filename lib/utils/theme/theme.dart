@@ -5,6 +5,7 @@ import 'custom_theme/checkbox_theme.dart';
 import 'custom_theme/chip_theme.dart';
 import 'custom_theme/elevated_button_theme.dart';
 import 'custom_theme/outlinedbutton_theme.dart';
+import 'custom_theme/radio_theme.dart';
 import 'custom_theme/text_field_theme.dart';
 import 'custom_theme/text_theme.dart';
 import 'custom_theme/app_bar_theme.dart';
@@ -23,6 +24,7 @@ class EAppTheme {
     scaffoldBackgroundColor: Colors.white,
     chipTheme: EChipTheme.lightChipTheme,
     checkboxTheme: ECheckboxTheme.lightCheckboxTheme,
+    radioTheme: ERadioTheme.lightRadioTheme,
     bottomSheetTheme: EBottomSheetTheme.lightBottomSheetTheme,
     elevatedButtonTheme: EElevatedButtonTheme.lightElevatedButtonTheme,
     appBarTheme: EAppBarTheme.lightAppBarTheme,
@@ -38,6 +40,7 @@ class EAppTheme {
     textTheme: ETextTheme.darkTextTheme,
     chipTheme: EChipTheme.darkChipTheme,
     checkboxTheme: ECheckboxTheme.darkCheckboxTheme,
+    radioTheme: ERadioTheme.darkRadioTheme,
     appBarTheme: EAppBarTheme.darkAppBarTheme,
     bottomSheetTheme: EBottomSheetTheme.darkBottomSheetTheme,
     elevatedButtonTheme: EElevatedButtonTheme.darkElevatedButtonTheme,
