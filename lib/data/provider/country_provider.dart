@@ -86,8 +86,6 @@ class CountryProvider extends GetxController {
                 : language.substring(0, 3).toLowerCase())
         : ''; //eg swe for Sweden
     selectedLanguage.value = modelLan;
-    print("ModelLan : $modelLan");
-    print("Lang : $language");
     applyFilters();
   }
 
@@ -111,7 +109,6 @@ class CountryProvider extends GetxController {
     }
 
     // 🔹 Filter by Language (if a language is selected)
-    // 🔹 Filter by Language (if a language is selected)
     if (selectedLanguage.value.isNotEmpty) {
       filtered = filtered.where((country) {
         // Ensure the country has translations and the selected language exists in it
@@ -124,6 +121,7 @@ class CountryProvider extends GetxController {
 
       print(
           "Filtered: ${filtered.map((count) => count.translations?[selectedLanguage.value]?.official)}");
+      print("FilteredList: ${filtered.map((count) => count.name?.common)}");
     }
 
     // 🔹 Filter by Search Text
@@ -136,6 +134,12 @@ class CountryProvider extends GetxController {
               false)
           .toList();
     }
+
+    // notcalled
+    print("Data1234:  ${filtered[0].name?.common ?? ''}");
+
+    // notcalled
+    print("Data: hjef ${_filteredCountries[0].name?.common ?? ''}");
 
     // Apply final filtered list
     _filteredCountries.assignAll(filtered);

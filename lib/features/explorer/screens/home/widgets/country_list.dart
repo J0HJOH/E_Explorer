@@ -59,6 +59,8 @@ class CountryList extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20.0)),
                       child: Image.network(countryFlag),
                     ),
+                    // if  selected language is end return all countries else return filtered countries in that language
+
                     title: Text(
                       eachCountry.name?.common! ?? 'This country has no name',
                       style: Theme.of(context).textTheme.headlineMedium!,
