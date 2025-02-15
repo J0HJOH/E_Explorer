@@ -45,6 +45,7 @@ class CountryList extends StatelessWidget {
                 final defaultFlag =
                     'https://cdn.pixabay.com/photo/2017/03/14/21/00/american-flag-2144392_960_720.png';
                 final countryFlag = eachCountry.flags?.png! ?? defaultFlag;
+                final isNotEng = controller.selectedLanguage.value.isNotEmpty;
 
                 return GestureDetector(
                   onTap: () {
@@ -60,7 +61,15 @@ class CountryList extends StatelessWidget {
                       child: Image.network(countryFlag),
                     ),
                     title: Text(
-                      eachCountry.name?.common! ?? 'This country has no name',
+                      (!isNotEng || controller.selectedLanguage.value == 'eng')
+                          ? eachCountry.name?.common! ??
+                              'This country has no name'
+                          // return name in that language
+                          : eachCountry
+                                  .translations?[
+                                      controller.selectedLanguage.value]
+                                  ?.official ??
+                              'Not Named in this Language',
                       style: Theme.of(context).textTheme.headlineMedium!,
                     ),
                     subtitle: Text(

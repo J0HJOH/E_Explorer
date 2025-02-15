@@ -1,9 +1,11 @@
+import 'package:e_explore/data/provider/country_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../controllers/filter_controller.dart';
 
 class FilterModal extends StatelessWidget {
   final FilterController filterController = Get.put(FilterController());
+  final countryController = Get.find<CountryProvider>();
 
   final List<String> continents = [
     "Africa",
@@ -71,9 +73,17 @@ class FilterModal extends StatelessWidget {
                               if (selected == true) {
                                 filterController.selectedContinents
                                     .add(continent);
+
+                                // set the observable selected continent in the controller to this value
+                                // then call on search filter for the countryController
+                                countryController
+                                    .setSelectedContinents(continents);
                               } else {
                                 filterController.selectedContinents
                                     .remove(continent);
+
+                                countryController
+                                    .setSelectedContinents(continents);
                               }
                             },
                           ));
