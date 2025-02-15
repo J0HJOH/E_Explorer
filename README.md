@@ -1,6 +1,6 @@
-### E_Explorer
+## E_Explorer
 
-## A mobile app the shows list of several country and their respective data gotten from An API [Restful Countries](https://restfulcountries.com/api-documentation/version/1)
+### A mobile app the shows list of several country and their respective data gotten from An API [Restful Countries](https://restfulcountries.com/api-documentation/version/1)
 
 or use all countries [All Countries Data](https://restcountries.com/v3.1/all)
 
