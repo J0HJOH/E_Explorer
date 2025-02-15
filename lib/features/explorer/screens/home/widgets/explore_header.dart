@@ -19,7 +19,7 @@ class ExploreHeader extends StatelessWidget {
       leftWidget: Text('Explore',
           style: Theme.of(context)
               .textTheme
-              .labelLarge!
+              .headlineLarge!
               .copyWith(fontFamily: "Oleo")),
       rightWidget: IconButton(
         icon: Icon(dark ? Icons.nightlight_round : Icons.wb_sunny),

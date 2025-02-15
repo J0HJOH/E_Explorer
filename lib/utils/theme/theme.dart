@@ -7,6 +7,7 @@ import 'custom_theme/elevated_button_theme.dart';
 import 'custom_theme/outlinedbutton_theme.dart';
 import 'custom_theme/text_field_theme.dart';
 import 'custom_theme/text_theme.dart';
+import 'custom_theme/app_bar_theme.dart';
 
 class EAppTheme {
 //   this constructor is done to ensure this is not used over and over again
@@ -24,6 +25,7 @@ class EAppTheme {
     checkboxTheme: ECheckboxTheme.lightCheckboxTheme,
     bottomSheetTheme: EBottomSheetTheme.lightBottomSheetTheme,
     elevatedButtonTheme: EElevatedButtonTheme.lightElevatedButtonTheme,
+    appBarTheme: EAppBarTheme.lightAppBarTheme,
     outlinedButtonTheme: EOutlinedButton.lightOutlinedButton,
     inputDecorationTheme: ETextFieldTheme.lightTextFieldTheme,
   );
@@ -36,6 +38,7 @@ class EAppTheme {
     textTheme: ETextTheme.darkTextTheme,
     chipTheme: EChipTheme.darkChipTheme,
     checkboxTheme: ECheckboxTheme.darkCheckboxTheme,
+    appBarTheme: EAppBarTheme.darkAppBarTheme,
     bottomSheetTheme: EBottomSheetTheme.darkBottomSheetTheme,
     elevatedButtonTheme: EElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: EOutlinedButton.darkOutlinedButton,

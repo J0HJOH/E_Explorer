@@ -16,11 +16,11 @@ class ETextFieldTheme {
     floatingLabelStyle:
         const TextStyle().copyWith(color: Colors.black.withOpacity(0.8)),
     border: InputBorder.none,
-    fillColor: EColors.hintBackground,
+    fillColor: EColors.hintBackground.withAlpha(2),
     filled: true,
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
-      borderSide: const BorderSide(color: Colors.grey, width: 1),
+      borderSide: const BorderSide(color: Colors.purple, width: 1),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
@@ -52,7 +52,7 @@ class ETextFieldTheme {
     border: InputBorder.none,
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
-      borderSide: const BorderSide(color: Colors.grey, width: 1),
+      borderSide: const BorderSide(color: Colors.red, width: 1),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),

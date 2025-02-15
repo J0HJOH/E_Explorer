@@ -8,33 +8,33 @@ class CountryModel {
     this.independent,
     this.status,
     this.unMember,
-    // this.currencies,
-    // this.idd,
-    // this.capital,
-    // this.altSpellings,
-    // this.region,
-    // this.languages,
-    // this.translations,
-    // this.latlng,
-    // this.landlocked,
-    // this.area,
-    // this.demonyms,
-    // this.flag,
-    // this.maps,
-    // this.population,
-    // this.car,
-    // this.timezones,
-    // this.continents,
-    // this.flags,
-    // this.coatOfArms,
-    // this.startOfWeek,
-    // this.capitalInfo,
-    // this.cioc,
-    // this.subregion,
-    // this.fifa,
-    // this.borders,
-    // this.gini,
-    // this.postalCode,
+    this.currencies,
+    this.idd,
+    this.capital,
+    this.altSpellings,
+    this.region,
+    this.languages,
+    this.translations,
+    this.latlng,
+    this.landlocked,
+    this.area,
+    this.demonyms,
+    this.flag,
+    this.maps,
+    this.population,
+    this.car,
+    this.timezones,
+    this.continents,
+    this.flags,
+    this.coatOfArms,
+    this.startOfWeek,
+    this.capitalInfo,
+    this.cioc,
+    this.subregion,
+    this.fifa,
+    this.borders,
+    this.gini,
+    this.postalCode,
   });
 
   final Name? name;
@@ -45,33 +45,33 @@ class CountryModel {
   final bool? independent;
   final String? status;
   final bool? unMember;
-  // final Map<String, Currency>? currencies;
-  // final Idd? idd;
-  // final List<String>? capital;
-  // final List<String>? altSpellings;
-  // final String? region;
-  // final Map<String, String>? languages;
-  // final Map<String, Translation>? translations;
-  // final List<double>? latlng;
-  // final bool? landlocked;
-  // final double? area;
-  // final Demonyms? demonyms;
-  // final String? flag;
-  // final Maps? maps;
-  // final int? population;
-  // final Car? car;
-  // final List<String>? timezones;
-  // final List<String>? continents;
-  // final Flags? flags;
-  // final CoatOfArms? coatOfArms;
-  // final String? startOfWeek;
-  // final CapitalInfo? capitalInfo;
-  // final String? cioc;
-  // final String? subregion;
-  // final String? fifa;
-  // final List<String>? borders;
-  // final Map<String, double>? gini;
-  // final PostalCode? postalCode;
+  final Map<String, Currency>? currencies;
+  final Idd? idd;
+  final List<String>? capital;
+  final List<String>? altSpellings;
+  final String? region;
+  final Map<String, String>? languages;
+  final Map<String, Translation>? translations;
+  final List<double>? latlng;
+  final bool? landlocked;
+  final double? area;
+  final Demonyms? demonyms;
+  final String? flag;
+  final Maps? maps;
+  final int? population;
+  final Car? car;
+  final List<String>? timezones;
+  final List<String>? continents;
+  final Flags? flags;
+  final CoatOfArms? coatOfArms;
+  final String? startOfWeek;
+  final CapitalInfo? capitalInfo;
+  final String? cioc;
+  final String? subregion;
+  final String? fifa;
+  final List<String>? borders;
+  final Map<String, double>? gini;
+  final PostalCode? postalCode;
 
   factory CountryModel.fromJson(Map<String, dynamic> json) {
     CountryModel countries = CountryModel(
@@ -85,69 +85,69 @@ class CountryModel {
       independent: json["independent"],
       status: json["status"],
       unMember: json["unMember"],
-      // currencies: json["currencies"] == null
-      //     ? {}
-      //     : Map.from(json["currencies"]).map(
-      //         (k, v) => MapEntry<String, Currency>(k, Currency.fromJson(v)),
-      //       ),
-      // idd: json["idd"] == null ? null : Idd.fromJson(json["idd"]),
-      // capital: json["capital"] == null
-      //     ? []
-      //     : List<String>.from(json["capital"]!.map((x) => x)),
-      // altSpellings: json["altSpellings"] == null
-      //     ? []
-      //     : List<String>.from(json["altSpellings"]!.map((x) => x)),
-      // region: json["region"],
-      // languages: Map.from(json["languages"])
-      //     .map((k, v) => MapEntry<String, String>(k, v)),
-      // translations: Map.from(json["translations"]).map(
-      //     (k, v) => MapEntry<String, Translation>(k, Translation.fromJson(v))),
-      // latlng: json["latlng"] == null
-      //     ? []
-      //     : List<double>.from(json["latlng"]!.map((x) => x)),
-      // landlocked: json["landlocked"],
-      // area: json["area"],
-      // demonyms:
-      //     json["demonyms"] == null ? null : Demonyms.fromJson(json["demonyms"]),
-      // flag: json["flag"],
-      // maps: json["maps"] == null ? null : Maps.fromJson(json["maps"]),
-      // population: json["population"],
-      // car: json["car"] == null ? null : Car.fromJson(json["car"]),
-      // timezones: json["timezones"] == null
-      //     ? []
-      //     : List<String>.from(json["timezones"]!.map((x) => x)),
-      // continents: json["continents"] == null
-      //     ? []
-      //     : List<String>.from(json["continents"]!.map((x) => x)),
-      // flags: json["flags"] == null ? null : Flags.fromJson(json["flags"]),
-      // coatOfArms: json["coatOfArms"] == null
-      //     ? null
-      //     : CoatOfArms.fromJson(json["coatOfArms"]),
-      // startOfWeek: json["startOfWeek"],
-      // capitalInfo: json["capitalInfo"] == null
-      //     ? null
-      //     : CapitalInfo.fromJson(json["capitalInfo"]),
-      // cioc: json["cioc"],
-      // subregion: json["subregion"],
-      // fifa: json["fifa"],
-      // borders: json["borders"] == null
-      //     ? []
-      //     : List<String>.from(json["borders"]!.map((x) => x)),
-      // gini:
-      //     Map.from(json["gini"]).map((k, v) => MapEntry<String, double>(k, v)),
-      // postalCode: json["postalCode"] == null
-      //     ? null
-      //     : PostalCode.fromJson(json["postalCode"]),
+      currencies: (json["currencies"] != null && json["currencies"] is Map)
+          ? Map.from(json["currencies"]).map(
+              (k, v) => MapEntry<String, Currency>(k, Currency.fromJson(v)),
+            )
+          : {},
+      idd: json["idd"] == null ? null : Idd.fromJson(json["idd"]),
+      capital: json["capital"] == null
+          ? []
+          : List<String>.from(json["capital"]!.map((x) => x)),
+      altSpellings: json["altSpellings"] == null
+          ? []
+          : List<String>.from(json["altSpellings"]!.map((x) => x)),
+      region: json["region"],
+      languages: (json["languages"] != null && json["languages"] is Map)
+          ? Map.from(json["languages"])
+              .map((k, v) => MapEntry<String, String>(k, v))
+          : {},
+      translations:
+          (json["translations"] != null && json["translations"] is Map)
+              ? Map.from(json["translations"]).map((k, v) =>
+                  MapEntry<String, Translation>(k, Translation.fromJson(v)))
+              : {},
+      latlng: json["latlng"] == null
+          ? []
+          : List<double>.from(json["latlng"]!.map((x) => x)),
+      landlocked: json["landlocked"],
+      area: json["area"],
+      demonyms:
+          json["demonyms"] == null ? null : Demonyms.fromJson(json["demonyms"]),
+      flag: json["flag"],
+      maps: json["maps"] == null ? null : Maps.fromJson(json["maps"]),
+      population: json["population"],
+      car: json["car"] == null ? null : Car.fromJson(json["car"]),
+      timezones: json["timezones"] == null
+          ? []
+          : List<String>.from(json["timezones"]!.map((x) => x)),
+      continents: json["continents"] == null
+          ? []
+          : List<String>.from(json["continents"]!.map((x) => x)),
+      flags: json["flags"] == null ? null : Flags.fromJson(json["flags"]),
+      coatOfArms: json["coatOfArms"] == null
+          ? null
+          : CoatOfArms.fromJson(json["coatOfArms"]),
+      startOfWeek: json["startOfWeek"],
+      capitalInfo: json["capitalInfo"] == null
+          ? null
+          : CapitalInfo.fromJson(json["capitalInfo"]),
+      cioc: json["cioc"],
+      subregion: json["subregion"],
+      fifa: json["fifa"],
+      borders: json["borders"] == null
+          ? []
+          : List<String>.from(json["borders"]!.map((x) => x)),
+      gini: (json["gini"] != null && json["gini"] is Map)
+          ? Map.from(json["gini"]).map((k, v) => MapEntry<String, double>(k, v))
+          : {},
+      postalCode: json["postalCode"] == null
+          ? null
+          : PostalCode.fromJson(json["postalCode"]),
     );
 
     return countries;
   }
-
-// Not in use yet
-  // @override
-  // String toString() {
-  //   return "$name, $tld, $cca2, $ccn3, $cca3, $independent, $status, $unMember, $currencies, $idd, $capital, $altSpellings, $region, $languages, $translations, $latlng, $landlocked, $area, $demonyms, $flag, $maps, $population, $car, $timezones, $continents, $flags, $coatOfArms, $startOfWeek, $capitalInfo, $cioc, $subregion, $fifa, $borders, $gini, $postalCode, ";
-  // }
 }
 
 class CapitalInfo {
@@ -310,17 +310,6 @@ class Flags {
       svg: json["svg"],
       alt: json["alt"],
     );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "png": png,
-        "svg": svg,
-        "alt": alt,
-      };
-
-  @override
-  String toString() {
-    return "$png, $svg, $alt, ";
   }
 }
 

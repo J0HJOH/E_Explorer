@@ -13,18 +13,19 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return TextField(
-      onChanged: (value) {
-        controller.searchCountry(value);
-      },
+      onChanged: (value) => controller.searchCountry(value),
+      style: Theme.of(context).textTheme.titleMedium!,
       decoration: InputDecoration(
-        fillColor: Theme.of(context).inputDecorationTheme.fillColor,
-        filled: Theme.of(context).inputDecorationTheme.filled,
         hintText: 'Search Country',
-        alignLabelWithHint: true,
-        hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
-        prefixIcon: Icon(Icons.search),
-        border: Theme.of(context).inputDecorationTheme.border,
+        hintStyle: theme.inputDecorationTheme.hintStyle,
+        filled: theme.inputDecorationTheme.filled,
+        fillColor: theme.inputDecorationTheme.fillColor,
+        prefixIcon: const Icon(Icons.search),
+        border: theme.inputDecorationTheme.border,
+        focusedBorder: theme.inputDecorationTheme.focusedBorder,
+        enabledBorder: theme.inputDecorationTheme.enabledBorder,
       ),
     );
   }

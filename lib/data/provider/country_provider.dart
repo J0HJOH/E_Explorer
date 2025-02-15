@@ -10,6 +10,9 @@ class CountryProvider extends GetxController {
   final searchText = ''.obs;
   final isLoading = true.obs;
 
+  // store selected country value in an observable
+  final Rx<CountryModel?> selectedCountry = Rx<CountryModel?>(null);
+
 // a getter to expose the list of countries
   RxList<CountryModel> get countries => _filteredCountries;
 
@@ -46,6 +49,11 @@ class CountryProvider extends GetxController {
               country.name!.common!.toLowerCase().contains(text.toLowerCase()))
           .toList());
     }
+  }
+
+// set the user selection to save state
+  void setSelectedCountry(CountryModel country) {
+    selectedCountry.value = country;
   }
 
 // Reset filters to show all countries

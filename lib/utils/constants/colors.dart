@@ -23,13 +23,18 @@ class EColors {
   static const textSecondary = Color(0xFF6C7570);
   static const textWhite = Colors.white;
   static const hintBackground = Color(0xF2F4F7);
-  static const hintBackgroundDark = Color(0x98A2B333);
+  static const hintBackgroundDark = Color.fromARGB(20, 152, 162, 179);
   static const hintText = Color(0xFF667085);
 
   //     Background colors
   static const Color light = Color(0xFFF6F6F6);
   static const Color dark = Color(0xFF000F24);
   static const Color primaryBackground = Color(0xFFF3F5FF);
+
+  //     ForeGround colors
+  static const Color lightfg = Color(0xFF000000);
+  static const Color darkfg = Color(0xEAECF0);
+  // static const Color primaryBackgroundfg = Color(0xFFF3F5FF);
 
   //     Background colors Container
   static const Color lightContainer = Color(0xFFF6F6F6);

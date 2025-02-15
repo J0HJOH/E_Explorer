@@ -26,7 +26,14 @@ class IconTButtonWidget extends StatelessWidget {
             border: Border.all(color: EColors.black)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [Icon(icon), Flexible(child: Text(buttonText ?? ''))],
+          children: [
+            Icon(icon),
+            Flexible(
+                child: Text(
+              buttonText ?? '',
+              style: Theme.of(context).textTheme.bodyMedium!,
+            ))
+          ],
         ),
       ),
     );
