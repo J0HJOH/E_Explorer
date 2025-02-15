@@ -6,11 +6,11 @@ or use all countries [All Countries Data](https://restcountries.com/v3.1/all)
 
 
 ## Getting Started
-Clone this repo by running this command
+Clone this repo by running this
 
-''' bash
+'''bash
   git clone <you-forked-repo>
-'''
+
 
 Then run 
 
@@ -31,4 +31,6 @@ So have fun messing around with this list.
 
 ## Live View
 - [Appetize.io]()
-- [Github Repo]()
+- [Github Repo](https://github.com/J0HJOH/E_Explorer)
+- [Video Link](https://drive.google.com/file/d/1sMu6ZAXQGT0icvMfyPKt_Gl32efkKitM/view?usp=drivesdk)
+  
